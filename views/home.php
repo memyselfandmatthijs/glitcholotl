@@ -1,14 +1,18 @@
 <?php
-$servername = "localhost";
-$username = "gllms";
-$password = "ramesesII";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli("localhost", "gllms", "ramesesII", "glitcholotl");
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
-?>
+
+$sql = "select count(UserID) from Users";
+$result = $conn->query($sql);
+if (!$result) {
+    die("counting of users failed");
+}
+$count = mysqli_fetch_row($result)[0];
+echo $count . " users";
+
+$conn->close();
