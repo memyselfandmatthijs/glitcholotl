@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost", "gllms", "ramesesII", "glitcholotl");
+$conn = new mysqli("remotemysql.com", "zwTzrl4wRV", "0t3d9R5kuh", "zwTzrl4wRV");
 
 // Check connection
 if ($conn->connect_error) {
