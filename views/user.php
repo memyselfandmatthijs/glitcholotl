@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost", "gllms", "ramesesII", "glitcholotl");
+$conn = new mysqli("remotemysql.com", "zwTzrl4wRV", "0t3d9R5kuh", "zwTzrl4wRV");
 
 // Check connection
 if ($conn->connect_error) {
@@ -9,8 +9,7 @@ if ($conn->connect_error) {
 
 $user = array_pop(explode("/", $_SERVER['REQUEST_URI']));
 
-$sql = "select firstname, lastname from Users where Username='" . $user . "'";
-$result = $conn->query($sql);
+$result = $conn->query("select firstname, lastname from Users where Username='" . $user . "'");
 
 if ($result->num_rows > 0) {
     echo "<h1>" . $user . "</h1>";
@@ -18,4 +17,27 @@ if ($result->num_rows > 0) {
     echo $row["firstname"] . " " . $row["lastname"];
 } else {
     echo "No user found with name " . $user;
+}
+
+$result = $conn->query("select userid from Users where Username='" . $user . "'");
+
+$id = 0;
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $id = $row["userid"];
+} else {
+    die ("No UserID found for name " . $user);
+}
+
+$result = $conn->query("select contents from Glitches where UserID='" . $id . "'");
+
+if ($result->num_rows > 0) {
+    echo "<ul>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<li>" . $row["contents"] . "</li>";
+    }
+    echo "</ul>";
+} else {
+    die ("No UserID found for name " . $user);
 }
