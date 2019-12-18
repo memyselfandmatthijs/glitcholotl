@@ -1,0 +1,25 @@
+  body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  .header {
+    background: #26a69a;
+    padding: 0.5em;
+    padding-left: 2em;
+    color: white;
+  }
+
+  .header h1 {
+    display: inline;
+  }
+
+  .right {
+    display: inline;
+    float: right;
+    font-size: 20px;
+  }
+
+  .content {
+    margin: 2em;
+  }
