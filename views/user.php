@@ -56,7 +56,11 @@ require("header.php");
         }
         echo "</ul>";
     } else {
-        die ("No UserID found for name " . $user);
+        echo "<p>This user has not posted anything yet</p>";
+    }
+
+    if (isset( $_SESSION['user_id'])) {
+        echo '<form method="post"><input type="text" name="contents" placeholder="Text" max="32" /><input type="submit" /></form>';
     }
     ?>
     </div>

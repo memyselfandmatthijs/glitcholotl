@@ -16,7 +16,11 @@ Route::add("/",function(){
 // User page
 Route::add("/u/(.*)",function($var1){
     require "views/user.php";
-});
+}, "get");
+
+Route::add("/u/(.*)",function($var1){
+    require "views/processPost.php";
+}, "post");
 
 Route::add("/login",function(){
     require "views/login.php";

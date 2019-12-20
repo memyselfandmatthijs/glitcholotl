@@ -8,6 +8,10 @@ if (isset($username)) {
 
   $conn = new mysqli("remotemysql.com", "zwTzrl4wRV", "0t3d9R5kuh", "zwTzrl4wRV");
 
+  if ($conn->connect_error) {
+    die("Nope: " . $conn->connect_error);
+  }
+
   $stmt = $conn->prepare("SELECT * FROM Users WHERE Username = ?");
   $stmt->bind_param('s', $username);
   $stmt->execute();
