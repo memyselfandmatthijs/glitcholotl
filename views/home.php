@@ -38,5 +38,10 @@ session_start();
 
     ?>.</p>
   </div>
+  <br>
+  <div align="center">
+    <img src="../images/glitcholotllogo.png" width="190" height="115">
+  </div>
+  
 </body>
 </html>
